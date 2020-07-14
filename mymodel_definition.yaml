@@ -1,0 +1,68 @@
+# training:
+#   batch_size: 32
+#   epochs: 1000
+#   early_stop: 50
+#   learning_rate: 0.001
+#   optimizer:
+#     type: rmsprop
+
+training:
+  batch_size: 32
+  epochs: 500
+  early_stop: 50
+  learning_rate: 0.001
+  optimizer:
+    type: rmsprop
+
+input_features:
+  # - name: project_title
+  #   type: text
+
+  - name: project_owner
+    type: category
+
+  - name: basic_price
+    type: numerical
+    # preprocessing:
+    #   missing_value_strategy: fill_with_mean
+    #   normalization: zscore
+  # - name: target_price
+  #   type: numerical
+  #   preprocessing:
+  #     missing_value_strategy: fill_with_mean
+  #     normalization: zscore
+  - name: restriction
+    type: category
+
+  - name: competitors
+    type: numerical
+
+  - name: bidding_month
+    type: category
+
+  - name: bidding_quarter
+    type: category
+
+  - name: max_target_rate
+    type: numerical
+
+  - name: min_target_rate
+    type: numerical
+
+  - name: mean_target_rate
+    type: numerical
+
+  - name: std_target_rate
+    type: numerical
+
+  - name: count_bidding
+    type: numerical
+
+output_features:
+  - name: target_rate
+    type: numerical
+    optimizer:
+      type: loss
+    # num_fc_layers: 4
+    # fc_size: 64
+    # clip: [90, 102]

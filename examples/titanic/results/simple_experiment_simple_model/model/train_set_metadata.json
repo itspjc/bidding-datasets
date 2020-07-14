@@ -1,0 +1,115 @@
+{
+    "Age": {
+        "preprocessing": {
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_mean",
+            "normalization": null
+        }
+    },
+    "Embarked": {
+        "idx2str": [
+            "<UNK>",
+            "S",
+            "C",
+            "Q"
+        ],
+        "preprocessing": {
+            "fill_value": "<UNK>",
+            "lowercase": false,
+            "missing_value_strategy": "fill_with_const",
+            "most_common": 10000
+        },
+        "str2freq": {
+            "<UNK>": 2,
+            "C": 168,
+            "Q": 77,
+            "S": 644
+        },
+        "str2idx": {
+            "<UNK>": 0,
+            "C": 2,
+            "Q": 3,
+            "S": 1
+        },
+        "vocab_size": 4
+    },
+    "Fare": {
+        "preprocessing": {
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_mean",
+            "normalization": null
+        }
+    },
+    "Parch": {
+        "preprocessing": {
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const",
+            "normalization": null
+        }
+    },
+    "Pclass": {
+        "idx2str": [
+            "<UNK>",
+            "3",
+            "1",
+            "2"
+        ],
+        "preprocessing": {
+            "fill_value": "<UNK>",
+            "lowercase": false,
+            "missing_value_strategy": "fill_with_const",
+            "most_common": 10000
+        },
+        "str2freq": {
+            "1": 216,
+            "2": 184,
+            "3": 491,
+            "<UNK>": 0
+        },
+        "str2idx": {
+            "1": 2,
+            "2": 3,
+            "3": 1,
+            "<UNK>": 0
+        },
+        "vocab_size": 4
+    },
+    "Sex": {
+        "idx2str": [
+            "<UNK>",
+            "male",
+            "female"
+        ],
+        "preprocessing": {
+            "fill_value": "<UNK>",
+            "lowercase": false,
+            "missing_value_strategy": "fill_with_const",
+            "most_common": 10000
+        },
+        "str2freq": {
+            "<UNK>": 0,
+            "female": 314,
+            "male": 577
+        },
+        "str2idx": {
+            "<UNK>": 0,
+            "female": 2,
+            "male": 1
+        },
+        "vocab_size": 3
+    },
+    "SibSp": {
+        "preprocessing": {
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const",
+            "normalization": null
+        }
+    },
+    "Survived": {
+        "preprocessing": {
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "data_train_hdf5_fp": "./data/train.hdf5"
+}
