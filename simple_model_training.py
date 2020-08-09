@@ -25,7 +25,7 @@ model = LudwigModel(model_definition_file='./mymodel_definition.yaml',
                     logging_level=logging.INFO)
 
 # initiate model training
-train_stats = model.train(data_csv='./data/train_0713_5.csv',
+train_stats = model.train(data_csv='./data/train.csv',
                           experiment_name='simple_experiment',
                           model_name='simple_model')
 

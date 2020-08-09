@@ -1,73 +1,66 @@
 {
     "command": "simple_model_training.py",
-    "commit_hash": "57588fb66a8e",
-    "input_data": "./data/train_0713_5.csv",
-    "ludwig_version": "0.2.2.7",
+    "commit_hash": "25cf0a598379",
+    "input_data": "./data/train.csv",
+    "ludwig_version": "0.2.2.8",
     "model_definition": {
         "combiner": {
             "type": "concat"
         },
         "input_features": [
             {
+                "name": "project_type",
+                "tied_weights": null,
+                "type": "category"
+            },
+            {
                 "name": "project_owner",
                 "tied_weights": null,
                 "type": "category"
             },
             {
-                "name": "basic_price",
+                "name": "base_price",
+                "preprocessing": {
+                    "missing_value_strategy": "fill_with_mean",
+                    "normalization": "zscore"
+                },
                 "tied_weights": null,
                 "type": "numerical"
             },
             {
-                "name": "restriction",
+                "name": "bid_days",
+                "tied_weights": null,
+                "type": "numerical"
+            },
+            {
+                "name": "bid_start_month",
                 "tied_weights": null,
                 "type": "category"
             },
             {
-                "name": "competitors",
-                "tied_weights": null,
-                "type": "numerical"
-            },
-            {
-                "name": "bidding_month",
+                "name": "bid_start_weekday",
                 "tied_weights": null,
                 "type": "category"
-            },
-            {
-                "name": "bidding_quarter",
-                "tied_weights": null,
-                "type": "category"
-            },
-            {
-                "name": "max_target_rate",
-                "tied_weights": null,
-                "type": "numerical"
-            },
-            {
-                "name": "min_target_rate",
-                "tied_weights": null,
-                "type": "numerical"
-            },
-            {
-                "name": "mean_target_rate",
-                "tied_weights": null,
-                "type": "numerical"
-            },
-            {
-                "name": "std_target_rate",
-                "tied_weights": null,
-                "type": "numerical"
-            },
-            {
-                "name": "count_bidding",
-                "tied_weights": null,
-                "type": "numerical"
             }
         ],
         "output_features": [
             {
                 "clip": null,
                 "dependencies": [],
+                "fc_layers": [
+                    {
+                        "fc_size": 512
+                    },
+                    {
+                        "fc_size": 256
+                    },
+                    {
+                        "fc_size": 128
+                    },
+                    {
+                        "fc_size": 64
+                    }
+                ],
                 "loss": {
                     "type": "mean_squared_error",
                     "weight": 1
@@ -186,14 +179,14 @@
             }
         },
         "training": {
-            "batch_size": 32,
+            "batch_size": 64,
             "bucketing_field": null,
             "decay": false,
             "decay_rate": 0.96,
             "decay_steps": 10000,
             "dropout_rate": 0.0,
             "early_stop": 50,
-            "epochs": 500,
+            "epochs": 1000,
             "eval_batch_size": 0,
             "gradient_clipping": null,
             "increase_batch_size_on_plateau": 0,
